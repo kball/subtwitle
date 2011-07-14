@@ -3,7 +3,8 @@ Subtwitle = (function() {
     $('form').submit(fireForm);
     $('#username').focus();
     if ($('#username').val().length > 0) $('form').submit();
-    window.onpopstate = loadTweets;
+    $(window).bind('popstate', loadTweets);
+    setTimeout(loadTweets, 500);
   };
 
   var clearTweets = function() {
